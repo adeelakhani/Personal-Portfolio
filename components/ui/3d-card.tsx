@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/utils"
 import { useSpring, motion } from "framer-motion"
-import React, { useRef, useState } from "react"
+import React, { useRef} from "react"
 
 export const CardContainer = ({
   children,
@@ -14,7 +14,7 @@ export const CardContainer = ({
   containerClassName?: string
 }) => {
   const containerRef = useRef<HTMLDivElement>(null)
-  const [isHovered, setIsHovered] = useState(false)
+  // const [isHovered, setIsHovered] = useState(false)
   const rotateX = useSpring(0, { stiffness: 100, damping: 10 })
   const rotateY = useSpring(0, { stiffness: 100, damping: 10 })
 
@@ -29,7 +29,7 @@ export const CardContainer = ({
   }
 
   const handleMouseLeave = () => {
-    setIsHovered(false)
+    // setIsHovered(false)
     rotateX.set(0)
     rotateY.set(0)
   }
@@ -38,7 +38,7 @@ export const CardContainer = ({
     <div
       ref={containerRef}
       className={cn("relative", containerClassName)}
-      onMouseEnter={() => setIsHovered(true)}
+      // onMouseEnter={() => setIsHovered(true)}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
@@ -77,7 +77,7 @@ export const CardItem = ({
   rotateZ = 0,
   ...rest
 }: {
-  as?: any
+  as?: React.ElementType
   children: React.ReactNode
   className?: string
   translateX?: number | string

@@ -53,7 +53,7 @@ export const SparklesCore = ({
   useEffect(() => {
     if (!sparklesRef.current) return
     const density = particleDensity || 1
-    const sparkles = []
+    const sparkles: HTMLDivElement[] = []
     const createSparkles = () => {
       for (let i = 0; i < 10 * density; i++) {
         const sparkle = createSparkle()
