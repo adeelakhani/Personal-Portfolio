@@ -6,7 +6,7 @@ import { SkillsSection } from "@/components/sections/skills"
 import { ResumeSection } from "@/components/sections/resume"
 import { ContactSection } from "@/components/sections/contact"
 import { BackgroundParticles } from "@/components/background-particles"
-
+import Footer from "@/components/sections/footer"
 export default function Home() {
   return (
     <main className="relative min-h-screen w-full">
@@ -18,6 +18,7 @@ export default function Home() {
       <SkillsSection />
       <ResumeSection />
       <ContactSection />
+      <Footer />
     </main>
   )
 }
