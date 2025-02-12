@@ -11,7 +11,7 @@ export function AboutSection() {
   return (
     <section
       id="about"
-      className="flex min-h-screen items-center justify-center p-8"
+      className="flex min-h-screen items-center justify-center p-8 max-sm:pt-60"
     >
       <div className="max-w-6xl">
         <motion.h2

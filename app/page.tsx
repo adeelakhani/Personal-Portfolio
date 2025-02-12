@@ -9,7 +9,7 @@ import { BackgroundParticles } from "@/components/background-particles"
 import Footer from "@/components/sections/footer"
 export default function Home() {
   return (
-    <main className="relative min-h-screen w-full">
+    <main className="relative min-h-screen w-full max-sm:pt-60">
       <BackgroundParticles />
       <HeroSection />
       <AboutSection />

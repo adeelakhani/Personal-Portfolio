@@ -27,7 +27,7 @@ export default function RootLayout({
           forcedTheme="dark"
         >
           <Analytics/>
-          <Navbar />
+          <Navbar/>
           {children}
           <Toaster />
         </ThemeProvider>
