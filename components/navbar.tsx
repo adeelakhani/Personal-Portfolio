@@ -24,23 +24,9 @@ const navItems = [
 export function Navbar() {
   const [active, setActive] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
-  const [lastScrollY, setLastScrollY] = useState(0);
   const [showNavbar, setShowNavbar] = useState(true);
 
   useEffect(() => {
-    const controlNavbar = () => {
-      if (typeof window !== 'undefined') {
-        if (window.scrollY < lastScrollY || window.scrollY < 10) {
-          setShowNavbar(true);
-        } else {
-          if (!menuOpen) {
-            setShowNavbar(false);
-          }
-        }
-        setLastScrollY(window.scrollY);
-      }
-    };
-
     const handleScroll = () => {
       const sections = document.querySelectorAll("section");
       const scrollPosition = window.scrollY + 100;
@@ -55,13 +41,11 @@ export function Navbar() {
           setActive("#" + section.id);
         }
       });
-
-      controlNavbar();
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY, menuOpen]);
+  }, []);
 
   return (
     <motion.nav
