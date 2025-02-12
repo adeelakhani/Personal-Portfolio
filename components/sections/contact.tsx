@@ -14,7 +14,7 @@ export function ContactSection() {
 
   const [result, setResult] = React.useState("");
 
-  const onSubmit = async (event) => {
+  const onSubmit = async (event: SubmitEvent) => {
     toast({
       description: "Your message has been sent."
     });
