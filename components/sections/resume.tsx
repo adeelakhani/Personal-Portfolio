@@ -24,7 +24,6 @@ export function ResumeSection() {
         >
           <img
             src="/resume_ss.png"
-            type="image/png"
             className="h-full w-full rounded-lg object-cover"
           />
 

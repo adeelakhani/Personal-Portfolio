@@ -14,7 +14,8 @@ export function ContactSection() {
 
   const [result, setResult] = React.useState("");
 
-  const onSubmit = async (event: SubmitEvent) => {
+  const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    if(event.target instanceof HTMLFormElement){
     toast({
       description: "Your message has been sent."
     });
@@ -39,6 +40,7 @@ export function ContactSection() {
       console.log("Error", data);
       setResult(data.message);
     }
+  }
   };
 
   

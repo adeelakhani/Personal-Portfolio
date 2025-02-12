@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, useScroll } from "framer-motion";
+import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
 import Image from "next/image";
@@ -17,9 +17,7 @@ const navItems = [
 
 export function Navbar() {
   const [active, setActive] = useState("");
-  const { scrollY } = useScroll();
-  const [hidden, setHidden] = useState(false);
-  const [lastScrollY, setLastScrollY] = useState(0);
+  const hidden = false;
 
 
   useEffect(() => {
