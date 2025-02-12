@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { Button } from "../ui/button"
-import { Download } from "lucide-react"
+import { motion } from "framer-motion";
+import { Button } from "../ui/button";
+import { Download } from "lucide-react";
 
 export function ResumeSection() {
   return (
@@ -23,19 +23,21 @@ export function ResumeSection() {
           className="relative aspect-[8.5/11] w-full rounded-lg border border-white/10 bg-black/50 backdrop-blur-sm"
         >
           <img
-            src="/placeholder.svg?height=1100&width=850"
-            alt="Resume"
+            src="/resume_ss.png"
+            type="image/png"
             className="h-full w-full rounded-lg object-cover"
           />
+
           <div className="absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 transition-opacity hover:opacity-100">
-            <Button className="gap-2">
-              <Download className="h-4 w-4" />
-              Download PDF
-            </Button>
+            <a href="/Resume_Website.pdf" download>
+              <Button className="gap-2">
+                <Download className="h-4 w-4" />
+                Download PDF
+              </Button>
+            </a>
           </div>
         </motion.div>
       </div>
     </section>
-  )
+  );
 }
-

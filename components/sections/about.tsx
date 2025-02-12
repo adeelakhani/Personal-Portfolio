@@ -1,14 +1,18 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { TextGenerateEffect } from "../ui/text-generate-effect.tsx"
-import Image from "next/image"
+import { motion } from "framer-motion";
+import { TextGenerateEffect } from "../ui/text-generate-effect";
+import Image from "next/image";
 
 export function AboutSection() {
-  const words = `I'm a passionate developer who loves creating beautiful and functional web experiences. With a keen eye for design and a love for clean code, I bring ideas to life through technology.`
+  const words =
+    "I'm Adeel Akhani, a Software Engineering Student at the University of Waterloo. Having been coding from a young age, I enjoy using my skills to build things I am passionate about. I am experienced in fullstack development, and AI/ML, looking learn more and push myself in these areas. Aside from programming, I enjoy drumming, sports, designing games, and overall being creative!";
 
   return (
-    <section id="about" className="flex min-h-screen items-center justify-center p-8">
+    <section
+      id="about"
+      className="flex min-h-screen items-center justify-center p-8"
+    >
       <div className="max-w-6xl">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -19,7 +23,6 @@ export function AboutSection() {
           About Me
         </motion.h2>
         <div className="grid gap-12 md:grid-cols-2 md:gap-8 lg:gap-16">
-          {/* Profile Image */}
           <motion.div
             initial={{ opacity: 0, scale: 0.5 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -35,12 +38,17 @@ export function AboutSection() {
               <div className="absolute inset-0 animate-spin-slow rounded-full bg-gradient-to-tr from-blue-500 to-purple-500" />
               <div className="absolute inset-2 rounded-full bg-black" />
               <div className="absolute inset-2 overflow-hidden rounded-full">
-                <Image src="/placeholder.svg" alt="Profile picture" fill className="h-full w-full object-cover" />
+                <Image
+                  src="/Untitled copy.jpg"
+                  alt="Profile picture"
+                  className="rounded-lg object-cover"
+                  width={600}
+                  height={600}
+                />
               </div>
             </div>
           </motion.div>
 
-          {/* Text Content */}
           <div className="relative flex items-center">
             <TextGenerateEffect words={words} />
             <motion.div
@@ -53,6 +61,5 @@ export function AboutSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }
-

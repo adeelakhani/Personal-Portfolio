@@ -1,12 +1,47 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { Input } from "../ui/input"
-import { Textarea } from "../ui/textarea"
-import { Button } from "../ui/button"
-import { BackgroundGradient } from "../ui/background-gradient"
+import { motion } from "framer-motion";
+import { Input } from "../ui/input";
+import { Textarea } from "../ui/textarea";
+import { Button } from "../ui/button";
+import { BackgroundGradient } from "../ui/background-gradient";
+import { useToast } from "../../hooks/use-toast";
+import React from "react";
 
 export function ContactSection() {
+  const { toast } = useToast();
+
+
+  const [result, setResult] = React.useState("");
+
+  const onSubmit = async (event) => {
+    toast({
+      description: "Your message has been sent."
+    });
+    event.preventDefault();
+    setResult("Sending....");
+    const formData = new FormData(event.target);
+
+    formData.append("access_key", "01e44113-d4fb-45c7-8393-e3108444da5c");
+
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData
+    }  
+  );
+
+    const data = await response.json();
+
+    if (data.success) {
+      setResult("Form Submitted Successfully");
+      event.target.reset();
+    } else {
+      console.log("Error", data);
+      setResult(data.message);
+    }
+  };
+
+  
   return (
     <section id="contact" className="min-h-screen p-8 pt-16">
       <motion.h2
@@ -19,21 +54,38 @@ export function ContactSection() {
       </motion.h2>
       <div className="mx-auto max-w-md">
         <BackgroundGradient className="rounded-[22px] p-4 sm:p-10">
-          <form className="space-y-6">
-            <div>
-              <Input placeholder="Name" className="border-white/10 bg-black/50 backdrop-blur-sm" />
-            </div>
-            <div>
-              <Input type="email" placeholder="Email" className="border-white/10 bg-black/50 backdrop-blur-sm" />
-            </div>
-            <div>
-              <Textarea placeholder="Message" className="min-h-[150px] border-white/10 bg-black/50 backdrop-blur-sm" />
-            </div>
-            <Button className="w-full">Send Message</Button>
+          <form
+            onSubmit={onSubmit}
+            action="https://api.web3forms.com/submit"
+            className="space-y-6"
+            id="contact-form"
+          >
+            <Input
+                type="text"
+                name="name"
+                placeholder="Name"
+                required
+                className="border-white/10 bg-black/50 backdrop-blur-sm"
+              />
+              <Input
+                type="email"
+                name="email"
+                placeholder="Email"
+                className="border-white/10 bg-black/50 backdrop-blur-sm"
+              />
+              <Textarea
+                placeholder="Your Message"
+                name="message"
+                required
+                className="min-h-[150px] border-white/10 bg-black/50 backdrop-blur-sm"
+              />
+            <Button type="submit" className="w-full">
+              Send Message
+            </Button>
           </form>
+          <span>{result}</span>
         </BackgroundGradient>
       </div>
     </section>
-  )
+  );
 }
-

@@ -56,17 +56,18 @@ export const TypewriterEffect = ({
   }
 
   return (
-    <div className={cn("text-center text-4xl font-bold sm:text-5xl", className)}>
+    <div className={cn("text-center text-7xl font-bold lg:text-7xl md:text-6xl sm:text-4xl", className)}>
       {renderWords()}
       <motion.span
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{
+          delay: 2.2,
           duration: 0.8,
           repeat: Number.POSITIVE_INFINITY,
           repeatType: "reverse",
         }}
-        className={cn("inline-block h-8 w-[4px] translate-y-1 bg-white", cursorClassName)}
+        className={cn("inline-block h-16 w-[6px] translate-y-1 bg-white", cursorClassName)}
       />
     </div>
   )

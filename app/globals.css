@@ -50,11 +50,6 @@
 
 /* Custom Utilities */
 @layer utilities {
-  /* Cursor */
-  .cursor-none {
-    cursor: none;
-  }
-
   /* Animations */
   .animate-spin-slow {
     animation: spin 8s linear infinite;

@@ -1,8 +1,7 @@
 "use client"
 
 import { cn } from "@/lib/utils"
-import { useSpring } from "framer-motion"
-import { motion } from "framer-motion"
+import { useSpring, motion } from "framer-motion"
 import React, { useRef, useState } from "react"
 
 export const CardContainer = ({
@@ -101,4 +100,3 @@ export const CardItem = ({
     </Component>
   )
 }
-

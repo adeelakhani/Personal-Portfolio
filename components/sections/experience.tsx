@@ -4,22 +4,22 @@ import { motion } from "framer-motion"
 
 const experiences = [
   {
-    company: "Company A",
-    position: "Senior Developer",
-    period: "2022 - Present",
-    description: "Led development of key features and mentored junior developers.",
+    company: "SoftSages Technology",
+    position: "Software Engineering Intern",
+    period: "July 2022 - August 2022",
+    description: "Worked on various AI/ML regression projects using Pandas, NumPy, Matplotlib, and Scikit-learn, including an email spam classifier that utilized NLP-based preprocessing (TF-IDF) for a web app.",
   },
   {
-    company: "Company B",
-    position: "Full Stack Developer",
-    period: "2020 - 2022",
-    description: "Developed and maintained multiple web applications using modern technologies.",
+    company: "Pine Ridge Secondary School",
+    position: "Computer Science Teaching Assistant",
+    period: "February 2023 – June 2023",
+    description: "Worked as a teaching assistant in a secondary school Java programming classroom, explaining various programming concepts ranging from basic printing to arrays and object-oriented programming.",
   },
   {
-    company: "Company C",
-    position: "Frontend Developer",
-    period: "2018 - 2020",
-    description: "Created responsive and interactive user interfaces for various clients.",
+    company: "Youth in Policing",
+    position: "Summer Student",
+    period: "July 2023 - August 2023",
+    description: "Worked with a team to bring positivity and change to the community, including organizing the C.A.N. Conference, which provided youth with volunteering and job opportunities with 35+ organizations for 200+ individuals.",
   },
 ]
 
