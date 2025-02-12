@@ -79,7 +79,7 @@ export function ContactSection() {
                 placeholder="Your Message"
                 name="message"
                 required
-                className="min-h-[150px] border-white/10 bg-black/50 backdrop-blur-sm"
+                className="min-h-[150px] border-white/10 bg-black/50 backdrop-blur-sm resize-none"
               />
             <Button type="submit" className="w-full">
               Send Message
