@@ -4,6 +4,7 @@ import { ThemeProvider } from "next-themes";
 import { Navbar } from "@/components/navbar";
 import type React from "react";
 import { Toaster } from "@/components/ui/toaster";
+import { Analytics } from "@vercel/analytics/react"
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,6 +26,7 @@ export default function RootLayout({
           enableSystem={false}
           forcedTheme="dark"
         >
+          <Analytics/>
           <Navbar />
           {children}
           <Toaster />
