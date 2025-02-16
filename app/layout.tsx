@@ -16,6 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <title>Adeel Akhani</title>
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
         
       </head>
