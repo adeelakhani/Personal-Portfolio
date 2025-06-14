@@ -19,33 +19,33 @@ const navItems = [
   { name: "Skills", href: "#skills" },
   { name: "Resume", href: "#resume" },
   { name: "Contact", href: "#contact" },
-];
+  { name: "Career Agent", href: "https://huggingface.co/spaces/adeel712/career_agent" },
+]
 
 export function Navbar() {
-  const [active, setActive] = useState("");
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [showNavbar, setShowNavbar] = useState(true);
+  const [active, setActive] = useState("")
+  const [menuOpen, setMenuOpen] = useState(false)
+  const [showNavbar, setShowNavbar] = useState(true)
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = document.querySelectorAll("section");
-      const scrollPosition = window.scrollY + 100;
+      const sections = document.querySelectorAll("section")
+      const scrollPosition = window.scrollY + 100
 
       sections.forEach((section) => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (
-          scrollPosition >= sectionTop &&
-          scrollPosition < sectionTop + sectionHeight
-        ) {
-          setActive("#" + section.id);
+        const sectionTop = section.offsetTop
+        const sectionHeight = section.clientHeight
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+          setActive("#" + section.id)
         }
-      });
-    };
+      })
+    }
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+
+  const isExternalLink = (href: string) => href.startsWith("http")
 
   return (
     <motion.nav
@@ -53,14 +53,14 @@ export function Navbar() {
         "fixed top-0 left-0 right-0 z-50 w-full flex items-center justify-between px-4 md:px-8",
         "border-b border-white/10 bg-black/50 backdrop-blur-sm",
         "h-16 transform transition-transform duration-300",
-        !showNavbar && !menuOpen ? "-translate-y-full" : "translate-y-0"
+        !showNavbar && !menuOpen ? "-translate-y-full" : "translate-y-0",
       )}
     >
       <div className="md:hidden">
         <button
           onClick={() => {
-            setMenuOpen(!menuOpen);
-            setShowNavbar(true);
+            setMenuOpen(!menuOpen)
+            setShowNavbar(true)
           }}
           className="text-white text-2xl"
         >
@@ -73,24 +73,23 @@ export function Navbar() {
           <li key={item.name}>
             <a
               href={item.href}
+              target={isExternalLink(item.href) ? "_blank" : undefined}
+              rel={isExternalLink(item.href) ? "noopener noreferrer" : undefined}
               className={cn(
                 "relative text-sm font-medium transition-colors hover:text-white/60",
-                active === item.href ? "text-white" : "text-white/80"
+                active === item.href ? "text-white" : "text-white/80",
               )}
               onClick={(e) => {
-                e.preventDefault();
-                document
-                  .querySelector(item.href)
-                  ?.scrollIntoView({ behavior: "smooth" });
-                setActive(item.href);
+                if (!isExternalLink(item.href)) {
+                  e.preventDefault()
+                  document.querySelector(item.href)?.scrollIntoView({ behavior: "smooth" })
+                  setActive(item.href)
+                }
               }}
             >
               {item.name}
               {active === item.href && (
-                <motion.div
-                  className="absolute -bottom-1 left-0 right-0 h-0.5 bg-white"
-                  layoutId="navbar-indicator"
-                />
+                <motion.div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-white" layoutId="navbar-indicator" />
               )}
             </a>
           </li>
@@ -104,14 +103,16 @@ export function Navbar() {
               <li key={item.name}>
                 <a
                   href={item.href}
+                  target={isExternalLink(item.href) ? "_blank" : undefined}
+                  rel={isExternalLink(item.href) ? "noopener noreferrer" : undefined}
                   className="text-white text-lg"
                   onClick={(e) => {
-                    e.preventDefault();
-                    document
-                      .querySelector(item.href)
-                      ?.scrollIntoView({ behavior: "smooth" });
-                    setMenuOpen(false);
-                    setActive(item.href);
+                    if (!isExternalLink(item.href)) {
+                      e.preventDefault()
+                      document.querySelector(item.href)?.scrollIntoView({ behavior: "smooth" })
+                      setActive(item.href)
+                    }
+                    setMenuOpen(false)
                   }}
                 >
                   {item.name}
@@ -123,28 +124,16 @@ export function Navbar() {
       )}
 
       <div className="flex items-center gap-3">
-        <a
-          href="https://www.linkedin.com/in/adeelakhani/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a href="https://www.linkedin.com/in/adeelakhani/" target="_blank" rel="noopener noreferrer">
           <FaLinkedin className="text-white text-xl hover:text-blue-400 transition" />
         </a>
-        <a
-          href="https://github.com/adeelakhani"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a href="https://github.com/adeelakhani" target="_blank" rel="noopener noreferrer">
           <FaGithub className="text-white text-xl hover:text-gray-400 transition" />
         </a>
         <a href="mailto:aakhani@uwaterloo.ca">
           <FaEnvelope className="text-white text-xl hover:text-red-400 transition" />
         </a>
-        <a
-          href="https://se-webring.xyz/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a href="https://se-webring.xyz/" target="_blank" rel="noopener noreferrer">
           <Image
             src="/logo_bg_b.png"
             alt="se-webring"
@@ -155,5 +144,5 @@ export function Navbar() {
         </a>
       </div>
     </motion.nav>
-  );
+  )
 }
