@@ -4,8 +4,8 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import {
-  FaLinkedin,
-  FaGithub,
+  // FaLinkedin,
+  // FaGithub,
   FaEnvelope,
   FaBars,
   FaTimes,
@@ -13,10 +13,8 @@ import {
 import Image from "next/image";
 
 const navItems = [
-  { name: "About", href: "#about" },
   { name: "Projects", href: "#projects" },
   { name: "Experience", href: "#experience" },
-  { name: "Skills", href: "#skills" },
   { name: "Resume", href: "#resume" },
   { name: "Contact", href: "#contact" },
   { name: "Career Agent", href: "https://huggingface.co/spaces/adeel712/career_agent" },
@@ -124,12 +122,12 @@ export function Navbar() {
       )}
 
       <div className="flex items-center gap-3">
-        <a href="https://www.linkedin.com/in/adeelakhani/" target="_blank" rel="noopener noreferrer">
+        {/* <a href="https://www.linkedin.com/in/adeelakhani/" target="_blank" rel="noopener noreferrer">
           <FaLinkedin className="text-white text-xl hover:text-blue-400 transition" />
         </a>
         <a href="https://github.com/adeelakhani" target="_blank" rel="noopener noreferrer">
           <FaGithub className="text-white text-xl hover:text-gray-400 transition" />
-        </a>
+        </a> */}
         <a href="mailto:aakhani@uwaterloo.ca">
           <FaEnvelope className="text-white text-xl hover:text-red-400 transition" />
         </a>

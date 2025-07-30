@@ -45,7 +45,7 @@ export function ContactSection() {
 
   
   return (
-    <section id="contact" className="min-h-screen p-8 pt-16">
+    <section id="contact" className="p-8 pt-16 pb-2">
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
