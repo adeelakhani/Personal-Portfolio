@@ -1,12 +1,11 @@
 "use client"
 import { motion } from "framer-motion"
-import { CardBody, CardContainer, CardItem } from "../ui/3d-card"
 import { Github, ExternalLink } from "lucide-react"
 
 const projects = [
   {
     title: "LoopyAI",
-    description: "An AI Agent that analyzes and filters your PostHog Session Replays and provides insights and recommendations for issues",
+    description: "An AI Agent that analyzes and filters your PostHog Session Replays to provide insights and recommendations for issues",
     image: "/LoopyAI.png",
     tags: [
       "FastAPI",
@@ -98,69 +97,67 @@ export function ProjectsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.2 }}
           >
-            <CardContainer className="inter-var">
-              <CardBody className="relative flex h-[600px] w-full flex-col rounded-xl border border-white/10 bg-black overflow-hidden">
-                {/* Image takes up more space to fit better */}
-                <CardItem translateZ="100" className="w-full h-[350px] relative">
-                  <img
-                    src={project.image || "/placeholder.svg"}
-                    className="h-full w-full object-cover rounded-t-xl"
-                    alt={project.title}
-                  />
-                  {/* Gradient overlay for better text readability */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent rounded-t-xl" />
-                </CardItem>
+            <div className="relative flex h-[650px] w-full flex-col rounded-xl border border-white/10 bg-black overflow-hidden hover:scale-105 transition-transform duration-200">
+              {/* Image takes up more space to fit better */}
+              <div className="w-full h-[350px] relative">
+                <img
+                  src={project.image || "/placeholder.svg"}
+                  className="h-full w-full object-cover rounded-t-xl"
+                  alt={project.title}
+                />
+                {/* Gradient overlay for better text readability */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent rounded-t-xl" />
+              </div>
 
-                {/* Content section with more space */}
-                <div className="flex flex-col justify-between p-4 h-[220px]">
-                  <div className="flex-1">
-                    <CardItem translateZ="50" className="text-xl font-bold text-white mb-2">
-                      {project.title}
-                    </CardItem>
-                    <CardItem as="p" translateZ="60" className="text-sm text-neutral-300 line-clamp-3">
-                      {project.description}
-                    </CardItem>
+              {/* Content section with more space */}
+              <div className="flex flex-col justify-between p-4 h-[220px]">
+                <div className="flex-1">
+                  <div className="text-xl font-bold text-white mb-2">
+                    {project.title}
+                  </div>
+                  <p className="text-sm text-neutral-300 line-clamp-3">
+                    {project.description}
+                  </p>
+                </div>
+
+                <div className="mt-1">
+                  <div className="mb-3">
+                    <div className="flex flex-wrap gap-1">
+                      {project.tags.map((tag) => (
+                        <span key={tag} className="rounded-full bg-white/10 px-2 py-1 text-xs">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
                   </div>
 
-                  <div className="mt-1">
-                    <CardItem translateZ="40" className="mb-3">
-                      <div className="flex flex-wrap gap-1">
-                        {project.tags.map((tag) => (
-                          <span key={tag} className="rounded-full bg-white/10 px-2 py-1 text-xs">
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                    </CardItem>
-
-                    <CardItem translateZ="30" className="flex gap-2 justify-end">
-                      {project.github && project.github.map((githubUrl, index) => (
-                        <a
-                          key={index}
-                          href={githubUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="cursor-pointer text-white transition-colors hover:text-gray-200"
-                          title={`GitHub Repository ${index + 1}`}
-                        >
-                          <Github size={20} />
-                        </a>
-                      ))}
-                      {project.deployment && (
-                        <a
-                          href={project.deployment}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="cursor-pointer text-white transition-colors hover:text-gray-200"
-                        >
-                          <ExternalLink size={20} />
-                        </a>
-                      )}
-                    </CardItem>
+                  <div className="flex gap-2 justify-end">
+                    {project.github && project.github.map((githubUrl, index) => (
+                      <a
+                        key={index}
+                        href={githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="cursor-pointer text-white transition-colors hover:text-gray-200"
+                        title={`GitHub Repository ${index + 1}`}
+                      >
+                        <Github size={20} />
+                      </a>
+                    ))}
+                    {project.deployment && (
+                      <a
+                        href={project.deployment}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="cursor-pointer text-white transition-colors hover:text-gray-200"
+                      >
+                        <ExternalLink size={20} />
+                      </a>
+                    )}
                   </div>
                 </div>
-              </CardBody>
-            </CardContainer>
+              </div>
+            </div>
           </motion.div>
         ))}
       </div>

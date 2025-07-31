@@ -80,7 +80,14 @@ export function Navbar() {
               onClick={(e) => {
                 if (!isExternalLink(item.href)) {
                   e.preventDefault()
-                  document.querySelector(item.href)?.scrollIntoView({ behavior: "smooth" })
+                  const element = document.querySelector(item.href) as HTMLElement
+                  if (element) {
+                    const offsetTop = element.offsetTop - 100
+                    window.scrollTo({
+                      top: offsetTop,
+                      behavior: "smooth"
+                    })
+                  }
                   setActive(item.href)
                 }
               }}
