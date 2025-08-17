@@ -140,7 +140,7 @@ export function ProjectsSection() {
             className="cursor-pointer"
             onClick={() => openModal(project)}
           >
-            <div className="relative flex h-[650px] w-full flex-col rounded-xl border border-white/10 bg-black overflow-hidden hover:scale-105 transition-transform duration-200">
+            <div className="relative flex h-[620px] w-full flex-col rounded-xl border border-white/10 bg-black overflow-hidden hover:scale-105 transition-transform duration-200">
               {/* Image takes up more space to fit better */}
               <div className="w-full h-[350px] relative">
                 <img
@@ -153,8 +153,8 @@ export function ProjectsSection() {
               </div>
 
               {/* Content section with more space */}
-              <div className="flex flex-col justify-between p-4 h-[300px]">
-                <div className="flex-1">
+              <div className="flex flex-col p-4 flex-1">
+                <div className="mt-4">
                   <div className="text-xl font-bold text-white mb-2">
                     {project.title}
                   </div>
@@ -163,48 +163,46 @@ export function ProjectsSection() {
                   </p>
                 </div>
 
-                <div className="mt-1">
-                  <div className="mb-3">
-                    <div className="flex flex-wrap gap-1">
-                      {project.tags.slice(0, 6).map((tag) => (
-                        <span key={tag} className="rounded-full bg-white/10 px-2 py-1 text-xs">
-                          {tag}
-                        </span>
-                      ))}
-                      {project.tags.length > 6 && (
-                        <span className="rounded-full bg-white/10 px-2 py-1 text-xs">
-                          +{project.tags.length - 6}
-                        </span>
-                      )}
-                    </div>
-                  </div>
-
-                  <div className="flex gap-2 justify-end">
-                    {project.github && project.github.map((githubUrl, index) => (
-                      <a
-                        key={index}
-                        href={githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="cursor-pointer text-white transition-colors hover:text-gray-200"
-                        title={`GitHub Repository ${index + 1}`}
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        <Github size={20} />
-                      </a>
+                <div className="mb-3 mt-8">
+                  <div className="flex flex-wrap gap-0.5 max-h-12 overflow-hidden">
+                    {project.tags.slice(0, 10).map((tag) => (
+                      <span key={tag} className="rounded-full bg-white/10 px-2 py-1 text-xs mr-1 mb-1">
+                        {tag}
+                      </span>
                     ))}
-                    {project.deployment && (
-                      <a
-                        href={project.deployment}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="cursor-pointer text-white transition-colors hover:text-gray-200"
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        <ExternalLink size={20} />
-                      </a>
+                    {project.tags.length > 10 && (
+                      <span className="rounded-full bg-white/10 px-2 py-1 text-xs mr-1 mb-1">
+                        +{project.tags.length - 10}
+                      </span>
                     )}
                   </div>
+                </div>
+
+                <div className="flex gap-2 justify-end mt-auto">
+                  {project.github && project.github.map((githubUrl, index) => (
+                    <a
+                      key={index}
+                      href={githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="cursor-pointer text-white transition-colors hover:text-gray-200"
+                      title={`GitHub Repository ${index + 1}`}
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <Github size={20} />
+                    </a>
+                  ))}
+                  {project.deployment && (
+                    <a
+                      href={project.deployment}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="cursor-pointer text-white transition-colors hover:text-gray-200"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <ExternalLink size={20} />
+                    </a>
+                  )}
                 </div>
               </div>
             </div>
