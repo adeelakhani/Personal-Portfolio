@@ -30,6 +30,7 @@ const projects = [
     ],
     github: ["https://github.com/adeelakhani/around-me-agent"],
     deployment: null,
+    twitter: "https://x.com/adeel_712/status/1956911754539159795",
   },
   {
     title: "LoopyAI",
@@ -44,6 +45,7 @@ const projects = [
     ],
     github: ["https://github.com/adeelakhani/LoopyAI-Backend", "https://github.com/adeelakhani/LoopyAI"],
     deployment: null,
+    twitter: null,
   },
   {
     title: "LetsCook",
@@ -61,6 +63,7 @@ const projects = [
     ],
     github: ["https://github.com/adeelakhani/LetsCook"],
     deployment: "https://letscook-silk.vercel.app/",
+    twitter: null,
   },
   {
     title: "LooLines",
@@ -70,6 +73,7 @@ const projects = [
     tags: ["Next.js", "Tailwind CSS", "Supabase", "PostgreSQL", "TypeScript", "Bleak", "MappedIn SDK"],
     github: ["https://github.com/Leonardomontesqui/BluetoothDetection"],
     deployment: "https://loolines.vercel.app/",
+    twitter: null,
   },
   {
     title: "MakeSomething",
@@ -78,6 +82,7 @@ const projects = [
     tags: ["React", "Node.js", "Express", "Claude AI API", "Axios"],
     github: ["https://github.com/adeelakhani/MakeSomething-"],
     deployment: "https://makesomething.vercel.app/",
+    twitter: null,
   },
   {
     title: "RememberGranny",
@@ -87,6 +92,7 @@ const projects = [
     tags: ["HTML", "CSS", "Groq API", "LSTM"],
     github: ["https://github.com/hhyxn/newhack_FINALFINAL"],
     deployment: null,
+    twitter: null,
   },
   {
     title: "Monopoly",
@@ -95,6 +101,7 @@ const projects = [
     tags: ["Java OOP", "Java Swing", "Java AWT"],
     github: ["https://github.com/adeelakhani/Monopoly-With-Java-UI"],
     deployment: null,
+    twitter: null,
   },
   {
     title: "Grendel, The Game",
@@ -103,6 +110,7 @@ const projects = [
     tags: ["Unity", "C#"],
     github: null,
     deployment: null,
+    twitter: null,
   },
 ]
 
@@ -178,32 +186,43 @@ export function ProjectsSection() {
                   </div>
                 </div>
 
-                <div className="flex gap-2 justify-end mt-auto">
-                  {project.github && project.github.map((githubUrl, index) => (
-                    <a
-                      key={index}
-                      href={githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="cursor-pointer text-white transition-colors hover:text-gray-200"
-                      title={`GitHub Repository ${index + 1}`}
-                      onClick={(e) => e.stopPropagation()}
-                    >
-                      <Github size={20} />
-                    </a>
-                  ))}
-                  {project.deployment && (
-                    <a
-                      href={project.deployment}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="cursor-pointer text-white transition-colors hover:text-gray-200"
-                      onClick={(e) => e.stopPropagation()}
-                    >
-                      <ExternalLink size={20} />
-                    </a>
-                  )}
-                </div>
+                                  <div className="flex gap-2 justify-end mt-auto">
+                    {project.github && project.github.map((githubUrl, index) => (
+                      <a
+                        key={index}
+                        href={githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="cursor-pointer text-white transition-all duration-200 hover:text-gray-200 hover:scale-110 hover:bg-gray-600 p-1 rounded"
+                        title={`GitHub Repository ${index + 1}`}
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <Github size={20} />
+                      </a>
+                    ))}
+                    {project.deployment && (
+                      <a
+                        href={project.deployment}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="cursor-pointer text-white transition-all duration-200 hover:text-gray-200 hover:scale-110 hover:bg-gray-600 p-1 rounded"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <ExternalLink size={20} />
+                      </a>
+                    )}
+                    {project.twitter && (
+                      <a
+                        href={project.twitter}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="cursor-pointer text-white transition-all duration-200 hover:text-gray-200 hover:scale-110 hover:bg-gray-600 p-1 rounded"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <span className="text-lg font-bold flex items-center justify-center w-5 h-5">𝕏</span>
+                      </a>
+                    )}
+                  </div>
               </div>
             </div>
           </motion.div>

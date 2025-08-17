@@ -10,6 +10,7 @@ interface Project {
   tags: string[]
   github: string[] | null
   deployment: string | null
+  twitter: string | null
 }
 
 interface ProjectModalProps {
@@ -103,6 +104,17 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
                   >
                     <ExternalLink className="w-5 h-5" />
                     <span>Deployment</span>
+                  </a>
+                )}
+                {project.twitter && (
+                  <a
+                    href={project.twitter}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 px-4 py-2 bg-white/10 rounded-lg hover:bg-white/20 transition-colors"
+                  >
+                    <span className="w-5 h-5 flex items-center justify-center font-bold">𝕏</span>
+                    <span>Twitter</span>
                   </a>
                 )}
               </div>
