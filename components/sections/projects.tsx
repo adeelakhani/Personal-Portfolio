@@ -1,8 +1,36 @@
 "use client"
 import { motion } from "framer-motion"
 import { Github, ExternalLink } from "lucide-react"
+import { useState } from "react"
+import { ProjectModal } from "../ui/project-modal"
 
 const projects = [
+  {
+    title: "Around Me",
+    description: "AroundMe Agent is a sophisticated AI-powered location discovery platform that leverages LangGraph/LangChain stateful workflows to orchestrate AI agents for intelligent data extraction from Reddit community discussions, municipal 311 services, and local news sources. The system employs advanced browser automation with Playwright for dynamic content extraction, implements a comprehensive 5-stage geocoding pipeline utilizing Serper KnowledgeGraph, Google Places API, and OpenStreetMap with LLM-assisted address ranking, and features intelligent municipal API discovery through pattern matching and government domain validation. The platform demonstrates advanced AI orchestration, multi-source data integration, and modern full-stack development capabilities combining AI/ML, web scraping, and geospatial analysis, with a custom Mapbox GL frontend featuring 3D building renderings and real-time POI visualization.",
+    image: "/AroundMe.png",
+    tags: [
+      "FastAPI",
+      "LangGraph",
+      "LangChain",
+      "OpenAI GPT-4",
+      "Playwright",
+      "Next.js",
+      "Mapbox GL",
+      "Serper API",
+      "Google Places API",
+      "OpenStreetMap",
+      "Pydantic",
+      "Python",
+      "TypeScript",
+      "Tailwind CSS",
+      "BeautifulSoup4",
+      "NewsAPI.ai",
+      "Ticketmaster API",
+    ],
+    github: ["https://github.com/adeelakhani/around-me-agent"],
+    deployment: null,
+  },
   {
     title: "LoopyAI",
     description: "An AI Agent that analyzes and filters your PostHog Session Replays to provide insights and recommendations for issues",
@@ -79,6 +107,19 @@ const projects = [
 ]
 
 export function ProjectsSection() {
+  const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null)
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
+  const openModal = (project: typeof projects[0]) => {
+    setSelectedProject(project)
+    setIsModalOpen(true)
+  }
+
+  const closeModal = () => {
+    setIsModalOpen(false)
+    setSelectedProject(null)
+  }
+
   return (
     <section id="projects" className="min-h-screen p-8 pt-2">
       <motion.h2
@@ -96,6 +137,8 @@ export function ProjectsSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.2 }}
+            className="cursor-pointer"
+            onClick={() => openModal(project)}
           >
             <div className="relative flex h-[650px] w-full flex-col rounded-xl border border-white/10 bg-black overflow-hidden hover:scale-105 transition-transform duration-200">
               {/* Image takes up more space to fit better */}
@@ -110,7 +153,7 @@ export function ProjectsSection() {
               </div>
 
               {/* Content section with more space */}
-              <div className="flex flex-col justify-between p-4 h-[220px]">
+              <div className="flex flex-col justify-between p-4 h-[300px]">
                 <div className="flex-1">
                   <div className="text-xl font-bold text-white mb-2">
                     {project.title}
@@ -123,11 +166,16 @@ export function ProjectsSection() {
                 <div className="mt-1">
                   <div className="mb-3">
                     <div className="flex flex-wrap gap-1">
-                      {project.tags.map((tag) => (
+                      {project.tags.slice(0, 6).map((tag) => (
                         <span key={tag} className="rounded-full bg-white/10 px-2 py-1 text-xs">
                           {tag}
                         </span>
                       ))}
+                      {project.tags.length > 6 && (
+                        <span className="rounded-full bg-white/10 px-2 py-1 text-xs">
+                          +{project.tags.length - 6}
+                        </span>
+                      )}
                     </div>
                   </div>
 
@@ -140,6 +188,7 @@ export function ProjectsSection() {
                         rel="noopener noreferrer"
                         className="cursor-pointer text-white transition-colors hover:text-gray-200"
                         title={`GitHub Repository ${index + 1}`}
+                        onClick={(e) => e.stopPropagation()}
                       >
                         <Github size={20} />
                       </a>
@@ -150,6 +199,7 @@ export function ProjectsSection() {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="cursor-pointer text-white transition-colors hover:text-gray-200"
+                        onClick={(e) => e.stopPropagation()}
                       >
                         <ExternalLink size={20} />
                       </a>
@@ -161,6 +211,12 @@ export function ProjectsSection() {
           </motion.div>
         ))}
       </div>
+
+      <ProjectModal
+        project={selectedProject}
+        isOpen={isModalOpen}
+        onClose={closeModal}
+      />
     </section>
   )
 }
