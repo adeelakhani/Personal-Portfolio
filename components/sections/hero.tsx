@@ -9,15 +9,41 @@ export function HeroSection() {
   const [xClicked, setXClicked] = useState(false);
 
   return (
-    <section className="flex items-center justify-center p-8 pt-28 pb-2">
+    <section className="p-8 pt-28 pb-2 md:flex md:items-center md:justify-center">
       <div className="max-w-6xl w-full">
         <div className="grid gap-12 md:grid-cols-2 md:gap-8 lg:gap-16 items-center">
-          {/* Left side - Text content */}
+          {/* Photo - First on mobile, right side on desktop */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="flex justify-center order-1 md:order-2 md:justify-end"
+          >
+            <div className="relative">
+              {/* Animated border */}
+              <div className="absolute inset-0 animate-spin-slow rounded-full bg-gradient-to-tr from-blue-500 via-purple-500 to-indigo-500" />
+              <div className="relative bg-black rounded-full p-1">
+                <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden">
+                  <Image
+                    src="/ProfessionalPhoto.png"
+                    alt="Adeel Akhani"
+                    fill
+                    className="object-cover"
+                    priority
+                  />
+                  {/* Subtle gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Text content - Second on mobile, left side on desktop */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="space-y-6"
+            className="space-y-6 order-2 md:order-1"
           >
             {/* Name */}
             <motion.h1
@@ -83,31 +109,7 @@ export function HeroSection() {
             </motion.div>
           </motion.div>
 
-          {/* Right side - Image */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="flex justify-center md:justify-end"
-          >
-            <div className="relative">
-              {/* Animated border */}
-              <div className="absolute inset-0 animate-spin-slow rounded-full bg-gradient-to-tr from-blue-500 via-purple-500 to-indigo-500" />
-              <div className="relative bg-black rounded-full p-1">
-                <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden">
-                  <Image
-                    src="/ProfessionalPhoto.png"
-                    alt="Adeel Akhani"
-                    fill
-                    className="object-cover"
-                    priority
-                  />
-                  {/* Subtle gradient overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
-                </div>
-              </div>
-            </div>
-          </motion.div>
+
         </div>
       </div>
     </section>
