@@ -148,9 +148,9 @@ export function ProjectsSection() {
             className="cursor-pointer"
             onClick={() => openModal(project)}
           >
-            <div className="relative flex h-[620px] w-full flex-col rounded-xl border border-white/10 bg-black overflow-hidden hover:scale-105 transition-transform duration-200">
+            <div className="relative flex h-auto min-h-[500px] md:h-[620px] w-full flex-col rounded-xl border border-white/10 bg-black overflow-hidden hover:scale-105 transition-transform duration-200">
               {/* Image takes up more space to fit better */}
-              <div className="w-full h-[350px] relative">
+              <div className="w-full h-[200px] md:h-[300px] relative">
                 <img
                   src={project.image || "/placeholder.svg"}
                   className="h-full w-full object-cover rounded-t-xl"

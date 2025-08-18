@@ -49,11 +49,11 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
             </button>
 
             {/* Project image */}
-            <div className="relative h-[500px] w-full overflow-hidden rounded-t-xl">
+            <div className="relative h-[250px] sm:h-[350px] md:h-[450px] w-full overflow-hidden rounded-t-xl">
               <img
                 src={project.image}
                 alt={project.title}
-                className="w-full h-full object-cover scale-110 rounded-t-xl"
+                className="w-full h-full object-cover rounded-t-xl"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent rounded-t-xl" />
             </div>
