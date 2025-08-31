@@ -148,7 +148,7 @@ export function ProjectsSection() {
             className="cursor-pointer"
             onClick={() => openModal(project)}
           >
-            <div className="relative flex h-auto min-h-[500px] md:h-[620px] w-full flex-col rounded-xl border border-white/10 bg-black overflow-hidden hover:scale-105 transition-transform duration-200">
+            <div className="relative flex h-auto min-h-[550px] md:h-[650px] w-full flex-col rounded-xl border border-white/10 bg-black overflow-hidden hover:scale-105 transition-transform duration-200">
               {/* Image takes up more space to fit better */}
               <div className="w-full h-[200px] md:h-[300px] relative">
                 <img
@@ -171,64 +171,64 @@ export function ProjectsSection() {
                   </p>
                 </div>
 
-                <div className="mb-3 mt-8">
-                  <div className="flex flex-wrap gap-0.5 max-h-12 overflow-hidden">
+                <div className="mb-4 mt-8 flex-1">
+                  <div className="flex flex-wrap gap-1 max-h-12">
                     {project.tags.slice(0, 10).map((tag) => (
-                      <span key={tag} className="rounded-full bg-white/10 px-2 py-1 text-xs mr-1 mb-1">
+                      <span key={tag} className="rounded-full bg-white/10 px-2 py-1 text-xs">
                         {tag}
                       </span>
                     ))}
                     {project.tags.length > 10 && (
-                      <span className="rounded-full bg-white/10 px-2 py-1 text-xs mr-1 mb-1">
+                      <span className="rounded-full bg-white/10 px-2 py-1 text-xs">
                         +{project.tags.length - 10}
                       </span>
                     )}
                   </div>
                 </div>
 
-                                  <div className="flex gap-2 justify-end mt-auto">
-                    {project.github && project.github.map((githubUrl, index) => (
-                      <a
-                        key={index}
-                        href={githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="cursor-pointer text-white transition-all duration-200 hover:text-gray-200 hover:scale-110 hover:bg-gray-600 p-1 rounded"
-                        title={`GitHub Repository ${index + 1}`}
-                        onClick={(e) => e.stopPropagation()}
+                <div className="flex gap-2 justify-end mt-auto">
+                  {project.github && project.github.map((githubUrl, index) => (
+                    <a
+                      key={index}
+                      href={githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="cursor-pointer text-white transition-all duration-200 hover:text-gray-200 hover:scale-110 hover:bg-gray-600 p-1 rounded"
+                      title={`GitHub Repository ${index + 1}`}
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <Github size={20} />
+                    </a>
+                  ))}
+                  {project.deployment && (
+                    <a
+                      href={project.deployment}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="cursor-pointer text-white transition-all duration-200 hover:text-gray-200 hover:scale-110 hover:bg-gray-600 p-1 rounded"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <ExternalLink size={20} />
+                    </a>
+                  )}
+                  {project.twitter && (
+                    <a
+                      href={project.twitter}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="cursor-pointer text-white transition-all duration-200 hover:text-gray-200 hover:scale-110 hover:bg-gray-600 p-1 rounded"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <svg 
+                        viewBox="0 0 24 24" 
+                        className="w-5 h-5"
+                        fill="currentColor"
                       >
-                        <Github size={20} />
-                      </a>
-                    ))}
-                    {project.deployment && (
-                      <a
-                        href={project.deployment}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="cursor-pointer text-white transition-all duration-200 hover:text-gray-200 hover:scale-110 hover:bg-gray-600 p-1 rounded"
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        <ExternalLink size={20} />
-                      </a>
-                    )}
-                    {project.twitter && (
-                      <a
-                        href={project.twitter}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="cursor-pointer text-white transition-all duration-200 hover:text-gray-200 hover:scale-110 hover:bg-gray-600 p-1 rounded"
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        <svg 
-                          viewBox="0 0 24 24" 
-                          className="w-5 h-5"
-                          fill="currentColor"
-                        >
-                          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                        </svg>
-                      </a>
-                    )}
-                  </div>
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                      </svg>
+                    </a>
+                  )}
+                </div>
               </div>
             </div>
           </motion.div>
