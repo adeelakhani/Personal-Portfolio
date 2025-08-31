@@ -15,7 +15,7 @@ import Image from "next/image";
 const navItems = [
   { name: "Projects", href: "#projects" },
   { name: "Experience", href: "#experience" },
-  { name: "Resume", href: "#resume" },
+  // { name: "Resume", href: "#resume" },
   { name: "Contact", href: "#contact" },
   { name: "Career Agent", href: "https://huggingface.co/spaces/adeel712/career_agent" },
 ]
@@ -28,7 +28,15 @@ export function Navbar() {
   useEffect(() => {
     const handleScroll = () => {
       const sections = document.querySelectorAll("section")
-      const scrollPosition = window.scrollY + 100
+      const scrollPosition = window.scrollY + 200
+      const windowHeight = window.innerHeight
+      const documentHeight = document.documentElement.scrollHeight
+
+      // If we're near the bottom of the page, highlight contact
+      if (window.scrollY + windowHeight >= documentHeight - 100) {
+        setActive("#contact")
+        return
+      }
 
       sections.forEach((section) => {
         const sectionTop = section.offsetTop
