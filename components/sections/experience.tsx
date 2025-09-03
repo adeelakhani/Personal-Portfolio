@@ -8,7 +8,7 @@ const experiences = [
     company: "Script Runner",
     logo: "/script-runner.jpeg", // Place your logo in public/
     position: "Software Engineering Intern",
-    period: "May 2024 – Present",
+    period: "May 2025 – August 2025",
     description: "Working on AI-powered prescription delivery and last-mile solutions for pharmacies across Canada. Building modern logistics and workflow software for healthcare.",
   },
   {
