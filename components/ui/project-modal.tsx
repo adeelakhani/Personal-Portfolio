@@ -1,6 +1,7 @@
 "use client"
 
 import { motion, AnimatePresence } from "framer-motion"
+import { useEffect } from "react"
 import { X, Github, ExternalLink, PlayCircle } from "lucide-react"
 
 interface Project {
@@ -21,6 +22,15 @@ interface ProjectModalProps {
 }
 
 export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
+  useEffect(() => {
+    if (!isOpen) return
+    const originalOverflow = document.body.style.overflow
+    document.body.style.overflow = "hidden"
+    return () => {
+      document.body.style.overflow = originalOverflow
+    }
+  }, [isOpen])
+
   if (!project) return null
 
   return (
