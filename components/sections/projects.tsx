@@ -1,10 +1,37 @@
 "use client"
 import { motion } from "framer-motion"
-import { Github, ExternalLink } from "lucide-react"
+import { Github, ExternalLink, PlayCircle } from "lucide-react"
 import { useState } from "react"
 import { ProjectModal } from "../ui/project-modal"
 
-const projects = [
+interface Project {
+  title: string
+  description: string
+  image: string
+  tags: string[]
+  github: string[] | null
+  deployment: string | null
+  twitter: string | null
+  video?: string | null
+}
+
+const projects: Project[] = [
+  {
+    title: "Scope AI",
+    description: "Scope AI is a VS Code extension for fast codebase comprehension: it uses the Martian API’s multi‑LLM routing to explain the active file across five abstraction levels (high‑level to line‑by‑line) in a VS Code webview, and a companion “Scope AI Context Generation” command exports an optimized PROJECT-CONTEXT.md from AI‑analyzed files, often reducing coding‑agent token usage.",
+    image: "/scopeAI.png",
+    tags: [
+      "TypeScript",
+      "VS Code Extension API",
+      "Martian API",
+      "WebView UI",
+      "crypto (md5)"
+    ],
+    github: ["https://github.com/adeelakhani/codieumextension"],
+    deployment: null,
+    twitter: null,
+    video: "https://www.loom.com/share/a6096a5c0ac14224a3782d738bbf6e2c",
+  },
   {
     title: "Around Me",
     description: "AroundMe Agent is a sophisticated AI-powered location discovery platform that leverages LangGraph/LangChain stateful workflows to orchestrate AI agents for intelligent data extraction from Reddit community discussions, municipal 311 services, and local news sources. The system employs advanced browser automation with Playwright for dynamic content extraction, implements a comprehensive 5-stage geocoding pipeline utilizing Serper KnowledgeGraph, Google Places API, and OpenStreetMap with LLM-assisted address ranking, and features intelligent municipal API discovery through pattern matching and government domain validation. The platform demonstrates advanced AI orchestration, multi-source data integration, and modern full-stack development capabilities combining AI/ML, web scraping, and geospatial analysis, with a custom Mapbox GL frontend featuring 3D building renderings and real-time POI visualization.",
@@ -115,10 +142,10 @@ const projects = [
 ]
 
 export function ProjectsSection() {
-  const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null)
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
 
-  const openModal = (project: typeof projects[0]) => {
+  const openModal = (project: Project) => {
     setSelectedProject(project)
     setIsModalOpen(true)
   }
@@ -187,6 +214,18 @@ export function ProjectsSection() {
                 </div>
 
                 <div className="flex gap-2 justify-end mt-auto">
+                  {project.video && (
+                    <a
+                      href={project.video}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="cursor-pointer text-white transition-all duration-200 hover:text-gray-200 hover:scale-110 hover:bg-gray-600 p-1 rounded"
+                      title="Video"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <PlayCircle size={20} />
+                    </a>
+                  )}
                   {project.github && project.github.map((githubUrl, index) => (
                     <a
                       key={index}

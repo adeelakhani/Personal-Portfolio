@@ -1,7 +1,7 @@
 "use client"
 
 import { motion, AnimatePresence } from "framer-motion"
-import { X, Github, ExternalLink } from "lucide-react"
+import { X, Github, ExternalLink, PlayCircle } from "lucide-react"
 
 interface Project {
   title: string
@@ -11,6 +11,7 @@ interface Project {
   github: string[] | null
   deployment: string | null
   twitter: string | null
+  video?: string | null
 }
 
 interface ProjectModalProps {
@@ -49,7 +50,7 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
             </button>
 
             {/* Project image */}
-            <div className="relative h-[250px] sm:h-[350px] md:h-[450px] w-full overflow-hidden rounded-t-xl">
+            <div className="relative h-[290px] sm:h-[390px] md:h-[500px] w-full overflow-hidden rounded-t-xl">
               <img
                 src={project.image}
                 alt={project.title}
@@ -83,6 +84,17 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
 
               {/* Links */}
               <div className="flex gap-4">
+                {project.video && (
+                  <a
+                    href={project.video}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 px-4 py-2 bg-white/10 rounded-lg hover:bg-white/20 transition-colors"
+                  >
+                    <PlayCircle className="w-5 h-5" />
+                    <span>Video</span>
+                  </a>
+                )}
                 {project.github && project.github.map((githubUrl, index) => (
                   <a
                     key={index}
