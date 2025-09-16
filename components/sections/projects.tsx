@@ -68,7 +68,7 @@ const projects: Project[] = [
       "PostHog API",
       "OpenAI Agents SDK(via Gemini)",
       "Next.js",
-      "Supabase(PostgreSQL)",
+      "Supabase (PostgreSQL)",
     ],
     github: ["https://github.com/adeelakhani/LoopyAI-Backend", "https://github.com/adeelakhani/LoopyAI"],
     deployment: null,
