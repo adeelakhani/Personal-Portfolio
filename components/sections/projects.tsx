@@ -77,7 +77,7 @@ const projects: Project[] = [
   {
     title: "LetsCook",
     description: "LetsCook turns cooking into a game, where people can post and try cooking challenges and interact with a community",
-    image: "/LetsCook.png",
+    image: "/letscook2.png",
     tags: [
       "TypeScript",
       "Express.js",
