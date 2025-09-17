@@ -28,7 +28,7 @@ const projects: Project[] = [
       "crypto (md5)"
     ],
     github: ["https://github.com/adeelakhani/codieumextension"],
-    deployment: null,
+    deployment: "https://marketplace.visualstudio.com/items?itemName=Scope.scope",
     twitter: null,
     video: "https://www.loom.com/share/a6096a5c0ac14224a3782d738bbf6e2c",
   },
