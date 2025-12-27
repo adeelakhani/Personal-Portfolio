@@ -5,6 +5,13 @@ import { motion } from "framer-motion"
 
 const experiences = [
   {
+    company: "Boardy",
+    logo: "/boardy.png",
+    position: "AI Engineer",
+    period: "January 2026 – April 2026",
+    description: "incoming jan 2026",
+  },
+  {
     company: "Script Runner",
     logo: "/script-runner.jpeg", // Place your logo in public/
     position: "Software Engineering Intern",
