@@ -9,7 +9,11 @@ const experiences = [
     logo: "/script-runner.jpeg", // Place your logo in public/
     position: "Software Engineering Intern",
     period: "May 2025 – August 2025",
-    description: "Working on AI-powered prescription delivery and last-mile solutions for pharmacies across Canada. Building modern logistics and workflow software for healthcare.",
+    description: (
+      <>
+        Working on AI-powered prescription delivery and last-mile solutions for pharmacies across Canada. Building modern logistics and workflow software for healthcare. Helped launch the <a href="https://ca.finance.yahoo.com/news/script-runner-uber-direct-partner-140000175.html?guccounter=1&guce_referrer=aHR0cHM6Ly93d3cubGlua2VkaW4uY29tLw&guce_referrer_sig=AQAAAKzFW-m5xXL7CR90xGEbBZq9c8-ou_5QgsfXLSbNEe_BfA8DNxBk_23z29s0K9M2XxprPkNmMLuQdHxd9IRd1V76ufLPDQcW3r_9ozvoSHOlnlbD8-8F9c4rVtk1Idq_HNEdMwy0xdtWZoWL5Au5F7h47DQ8VaMbWDHMoa3u8NLk" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">Uber Direct partnership</a> that brings prescription delivery to pharmacies nationwide.
+      </>
+    ),
   },
   {
     company: "SoftSages Technology",
@@ -63,7 +67,7 @@ export function ExperienceSection() {
               <h3 className="text-xl font-bold mt-2 mb-1">{exp.company}</h3>
               <p className="text-sm text-white/60 mb-1">{exp.position}</p>
               <p className="text-xs text-white/40 mb-2">{exp.period}</p>
-              <p className="text-sm text-white/80 mt-auto">{exp.description}</p>
+              <div className="text-sm text-white/80 mt-auto">{exp.description}</div>
             </div>
           </motion.div>
         ))}
