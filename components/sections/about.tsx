@@ -6,7 +6,7 @@ import Image from "next/image";
 
 export function AboutSection() {
   const words =
-    "I'm Adeel Akhani, a Software Engineering Student at the University of Waterloo. Having been coding from a young age, I enjoy using my skills to build things I am passionate about. I am experienced in fullstack development, and AI/ML, looking learn more and push myself in these areas. Aside from programming, I enjoy drumming, sports, designing games, and overall being creative!";
+    "Software Engineering student at the University of Waterloo. Incoming AI Engineer at Boardy. Interested in full-stack development, AI/ML, and building clean, practical systems. Outside of tech, I’m into drumming, sports, and game design.";
 
   return (
     <section

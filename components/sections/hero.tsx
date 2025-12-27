@@ -63,10 +63,10 @@ export function HeroSection() {
               className="space-y-4 text-white/80 text-lg leading-relaxed"
             >
               <p>
-                I'm Adeel Akhani, a Software Engineering Student at the University of Waterloo. Having been coding from a young age, I enjoy using my skills to build things I am passionate about. I am currently interested in fullstack development + AI/ML.
+              Software Engineering student at the University of Waterloo. Incoming AI Engineer at <a href="https://boardy.ai/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">Boardy</a>. Interested in full-stack development, AI/ML, and building clean, practical systems. Outside of tech, I'm into drumming, sports, and game design.
               </p>
               <p>
-                This summer I interned at <a href="https://scriptrunner.ai/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">Script Runner</a>, where I worked on software solutions for pharmacies around Canada.
+                This summer I interned at <a href="https://scriptrunner.ai/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">Script Runner</a>, where I worked on software solutions for pharmacies around Canada, and helped launch Uber Direct–powered prescription delivery.
               </p>
             </motion.div>
 
