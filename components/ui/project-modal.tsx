@@ -3,10 +3,11 @@
 import { motion, AnimatePresence } from "framer-motion"
 import { useEffect } from "react"
 import { X, Github, ExternalLink, PlayCircle } from "lucide-react"
+import { ReactNode } from "react"
 
 interface Project {
   title: string
-  description: string
+  description: string | ReactNode
   image: string
   tags: string[]
   github: string[] | null
@@ -73,9 +74,9 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
             <div className="p-6">
               <h2 className="text-3xl font-bold text-white mb-4">{project.title}</h2>
               
-              <p className="text-white/80 text-lg leading-relaxed mb-6">
+              <div className="text-white/80 text-lg leading-relaxed mb-6">
                 {project.description}
-              </p>
+              </div>
 
               {/* Tags */}
               <div className="mb-6">

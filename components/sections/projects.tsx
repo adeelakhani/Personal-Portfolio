@@ -3,10 +3,11 @@ import { motion } from "framer-motion"
 import { Github, ExternalLink, PlayCircle } from "lucide-react"
 import { useState } from "react"
 import { ProjectModal } from "../ui/project-modal"
+import { ReactNode } from "react"
 
 interface Project {
   title: string
-  description: string
+  description: string | ReactNode
   image: string
   tags: string[]
   github: string[] | null
@@ -61,7 +62,11 @@ const projects: Project[] = [
   },
   {
     title: "LoopyAI",
-    description: "An AI Agent that analyzes and filters your PostHog Session Replays to provide insights and recommendations for issues",
+    description: (
+      <>
+        An AI Agent that analyzes and filters your PostHog Session Replays to provide insights and recommendations for issues. Currently being transformed into <a href="https://www.npmjs.com/package/swing-sdk" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline" onClick={(e) => e.stopPropagation()}>Swing</a>.
+      </>
+    ),
     image: "/LoopyAI.png",
     tags: [
       "FastAPI",
@@ -193,9 +198,9 @@ export function ProjectsSection() {
                   <div className="text-xl font-bold text-white mb-2">
                     {project.title}
                   </div>
-                  <p className="text-sm text-neutral-300 line-clamp-3">
+                  <div className="text-sm text-neutral-300 line-clamp-3">
                     {project.description}
-                  </p>
+                  </div>
                 </div>
 
                 <div className="mb-4 mt-8 flex-1">
