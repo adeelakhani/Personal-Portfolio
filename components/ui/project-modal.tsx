@@ -14,6 +14,7 @@ interface Project {
   deployment: string | null
   twitter: string | null
   video?: string | null
+  npm?: string | null
 }
 
 interface ProjectModalProps {
@@ -127,6 +128,23 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
                   >
                     <ExternalLink className="w-5 h-5" />
                     <span>Deployment</span>
+                  </a>
+                )}
+                {project.npm && (
+                  <a
+                    href={project.npm}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 px-4 py-2 bg-white/10 rounded-lg hover:bg-white/20 transition-colors"
+                  >
+                    <svg
+                      viewBox="0 0 780 250"
+                      className="w-5 h-5"
+                      fill="currentColor"
+                    >
+                      <path d="M240,250h100v-50h100V0H240V250z M340,50h50v100h-50V50z M480,0v200h100V50h50v150h50V50h50v150h50V0H480z M0,200h100V50h50v150h50V0H0V200z" />
+                    </svg>
+                    <span>npm</span>
                   </a>
                 )}
                 {project.twitter && (

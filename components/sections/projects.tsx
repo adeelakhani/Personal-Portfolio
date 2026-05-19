@@ -14,9 +14,41 @@ interface Project {
   deployment: string | null
   twitter: string | null
   video?: string | null
+  npm?: string | null
 }
 
 const projects: Project[] = [
+  {
+    title: "localdocs",
+    description: (
+      <>
+        Most developers either pay for cloud RAG tools or settle for ctrl+F. localdocs is a third option: a fully local documentation search tool that runs entirely on your hardware using Ollama.
+        <br />
+        <br />
+        Every part of the pipeline - embedding, reasoning, reranking - runs on your machine via local LLMs. Your docs never leave your computer, and it costs nothing to run - no subscriptions, no per-query fees, no API keys.
+      </>
+    ),
+    image: "/localdocs.png",
+    tags: [
+      "TypeScript",
+      "Node.js",
+      "Ollama",
+      "LanceDB",
+      "MCP",
+      "RAG",
+      "Embeddings",
+      "Playwright",
+      "Crawlee",
+      "Cheerio",
+      "Readability",
+      "Apache Arrow",
+      "Zod",
+    ],
+    github: ["https://github.com/adeelakhani/localDocs"],
+    deployment: null,
+    twitter: "https://x.com/adeel_712/status/2050517228030701938",
+    npm: "https://www.npmjs.com/package/@adeel712/localdocs",
+  },
   {
     title: "Scope AI",
     description: "Scope AI is a VS Code extension for fast codebase comprehension: it uses the Martian API’s multi‑LLM routing to explain the active file across five abstraction levels (high‑level to line‑by‑line) in a VS Code webview, and a companion “Scope AI Context Generation” command exports an optimized PROJECT-CONTEXT.md from AI‑analyzed files, often reducing coding‑agent token usage.",
@@ -78,6 +110,7 @@ const projects: Project[] = [
     github: ["https://github.com/adeelakhani/LoopyAI-Backend", "https://github.com/adeelakhani/LoopyAI"],
     deployment: null,
     twitter: null,
+    npm: "https://www.npmjs.com/package/swing-sdk",
   },
   {
     title: "LetsCook",
@@ -253,6 +286,24 @@ export function ProjectsSection() {
                       onClick={(e) => e.stopPropagation()}
                     >
                       <ExternalLink size={20} />
+                    </a>
+                  )}
+                  {project.npm && (
+                    <a
+                      href={project.npm}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="cursor-pointer text-white transition-all duration-200 hover:text-gray-200 hover:scale-110 hover:bg-gray-600 p-1 rounded"
+                      title="npm package"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <svg
+                        viewBox="0 0 780 250"
+                        className="w-5 h-5"
+                        fill="currentColor"
+                      >
+                        <path d="M240,250h100v-50h100V0H240V250z M340,50h50v100h-50V50z M480,0v200h100V50h50v150h50V50h50v150h50V0H480z M0,200h100V50h50v150h50V0H0V200z" />
+                      </svg>
                     </a>
                   )}
                   {project.twitter && (
