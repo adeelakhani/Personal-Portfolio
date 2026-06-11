@@ -14,7 +14,7 @@ const projects = [
   },
   {
     title: "Scope AI",
-    description: "VS Code extension that explains files across five abstraction levels",
+    description: "VS Code extension that explains code across five abstraction levels",
     links: [
       { label: "github", href: "https://github.com/adeelakhani/codieumextension" },
       { label: "marketplace", href: "https://marketplace.visualstudio.com/items?itemName=Scope.scope" },
@@ -31,7 +31,7 @@ const projects = [
   },
   {
     title: "LoopyAI",
-    description: "agent that filters PostHog session replays for issues,being rebuilt as Swing",
+    description: "agent that filters PostHog session replays for issues, being rebuilt as Swing",
     links: [
       { label: "github", href: "https://github.com/adeelakhani/LoopyAI-Backend" },
       { label: "github", href: "https://github.com/adeelakhani/LoopyAI" },

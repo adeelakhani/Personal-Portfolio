@@ -1,13 +1,15 @@
-const experiences: { company: string; role: string; description: string; href: string; extra?: { label: string; href: string } }[] = [
+const experiences: { company: string; role: string; year: string; description: string; href: string; extra?: { label: string; href: string } }[] = [
   {
     company: "Boardy",
     role: "software engineer",
+    year: "2026",
     description: "agentic calendar integration + autonomous scheduling across 2,000+ calendars",
     href: "https://boardy.ai/",
   },
   {
     company: "Script Runner",
     role: "software engineer",
+    year: "2025",
     description: "ai-powered prescription delivery for pharmacies across Canada. helped launch the Uber Direct partnership",
     href: "https://scriptrunner.ai/",
     extra: { label: "yahoo finance", href: "https://ca.finance.yahoo.com/news/script-runner-uber-direct-partner-140000175.html" },
@@ -15,6 +17,7 @@ const experiences: { company: string; role: string; description: string; href: s
   {
     company: "SoftSages Technology",
     role: "software engineer",
+    year: "2022",
     description: "ML regression projects + NLP-based email spam classifier",
     href: "https://www.softsages.com/",
   },
@@ -30,6 +33,7 @@ export function WorkSection() {
           {experiences.map((exp) => (
             <div key={exp.company}>
               <p className="text-[15px] text-white/80">
+                <span className="text-white/30 text-[13px] mr-2">{exp.year}</span>
                 {exp.role},{" "}
                 <a href={exp.href} target="_blank" rel="noopener noreferrer"
                    className="font-medium text-white underline decoration-white/25 underline-offset-[3px] transition-colors hover:text-[hsl(33,94%,61%)] hover:decoration-[hsl(33,94%,61%)]/50">
