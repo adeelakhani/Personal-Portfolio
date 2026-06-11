@@ -1,20 +1,20 @@
 const experiences: { company: string; role: string; description: string; href: string; extra?: { label: string; href: string } }[] = [
   {
     company: "Boardy",
-    role: "AI Engineer",
+    role: "software engineer",
     description: "agentic calendar integration + autonomous scheduling across 2,000+ calendars",
     href: "https://boardy.ai/",
   },
   {
     company: "Script Runner",
-    role: "Software Engineer",
-    description: "AI-powered prescription delivery for pharmacies across Canada. helped launch the Uber Direct partnership",
+    role: "software engineer",
+    description: "ai-powered prescription delivery for pharmacies across Canada. helped launch the Uber Direct partnership",
     href: "https://scriptrunner.ai/",
     extra: { label: "yahoo finance", href: "https://ca.finance.yahoo.com/news/script-runner-uber-direct-partner-140000175.html" },
   },
   {
     company: "SoftSages Technology",
-    role: "Software Engineer",
+    role: "software engineer",
     description: "ML regression projects + NLP-based email spam classifier",
     href: "https://www.softsages.com/",
   },
