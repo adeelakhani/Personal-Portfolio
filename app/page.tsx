@@ -1,22 +1,17 @@
-import { HeroSection } from "@/components/sections/hero"
-import { ProjectsSection } from "@/components/sections/projects"
-import { ExperienceSection } from "@/components/sections/experience"
-// import { ResumeSection } from "@/components/sections/resume"
-import { ContactSection } from "@/components/sections/contact"
-import { BackgroundParticles } from "@/components/background-particles"
+import { IntroSection } from "@/components/sections/intro"
+import { WorkSection } from "@/components/sections/work"
+import { ProjectsListSection } from "@/components/sections/projects-list"
+import { BackgroundOrbit } from "@/components/background-orbit"
 import Footer from "@/components/sections/footer"
 
 export default function Home() {
   return (
     <main className="relative w-full">
-      <BackgroundParticles />
-      <HeroSection />
-      <ProjectsSection />
-      <ExperienceSection />
-      {/* <ResumeSection /> */}
-      <ContactSection />
+      <BackgroundOrbit />
+      <IntroSection />
+      <WorkSection />
+      <ProjectsListSection />
       <Footer />
     </main>
   )
 }
-

@@ -33,6 +33,10 @@
     --ring: 0 0% 83.1%;
 
     --radius: 0.5rem;
+
+    /* Signal: warm amber accent against near-black */
+    --signal: 33 94% 61%;
+    --signal-dim: 33 60% 40%;
   }
 }
 
@@ -42,9 +46,15 @@
   }
   body {
     @apply bg-black text-foreground;
+    font-feature-settings: "ss01" on, "ss02" on;
   }
   html {
     scroll-behavior: smooth;
+  }
+
+  ::selection {
+    background-color: hsl(var(--signal) / 0.25);
+    color: #fff;
   }
 }
 
@@ -124,5 +134,23 @@
 
 .no-scrollbar::-webkit-scrollbar {
   display: none;
+}
+
+/* Display font for the wordmark / large headings */
+.font-display {
+  font-family: var(--font-display);
+}
+
+/* Inline links within prose: quiet underline, amber on hover */
+.signal-link {
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 255, 255, 0.25);
+  text-underline-offset: 3px;
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
+}
+
+.signal-link:hover {
+  color: hsl(var(--signal));
+  text-decoration-color: hsl(var(--signal) / 0.6);
 }
 

@@ -33,6 +33,9 @@
     --ring: 0 0% 83.1%;
 
     --radius: 0.5rem;
+
+    --signal: 33 94% 61%;
+    --signal-dim: 33 60% 40%;
   }
 }
 
@@ -42,15 +45,23 @@
   }
   body {
     @apply bg-black text-foreground;
+    font-feature-settings: "ss01" on, "ss02" on;
   }
   html {
     scroll-behavior: smooth;
   }
+
+  ::selection {
+    background-color: hsl(var(--signal) / 0.25);
+    color: #fff;
+  }
 }
 
-/* Custom Utilities */
 @layer utilities {
-  /* Animations */
+  .cursor-none {
+    cursor: none;
+  }
+
   .animate-spin-slow {
     animation: spin 8s linear infinite;
   }
@@ -60,7 +71,6 @@
   }
 }
 
-/* Custom Animations */
 @keyframes spin {
   from {
     transform: rotate(0deg);
@@ -82,12 +92,10 @@
   }
 }
 
-/* Scroll Behavior */
 .smooth-scroll {
   scroll-behavior: smooth;
 }
 
-/* Typography */
 .prose {
   max-width: 65ch;
   @apply text-white;
@@ -101,17 +109,14 @@
   @apply text-white;
 }
 
-/* Gradient Text */
 .gradient-text {
   @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400;
 }
 
-/* Glass Effect */
 .glass {
   @apply bg-white/10 backdrop-blur-sm border border-white/20;
 }
 
-/* Hide scrollbar but allow scrolling */
 .no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -121,3 +126,14 @@
   display: none;
 }
 
+.signal-link {
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 255, 255, 0.25);
+  text-underline-offset: 3px;
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
+}
+
+.signal-link:hover {
+  color: hsl(var(--signal));
+  text-decoration-color: hsl(var(--signal) / 0.6);
+}
