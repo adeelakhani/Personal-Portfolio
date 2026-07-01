@@ -1,9 +1,9 @@
-const experiences: { company: string; role: string; year: string; description: string; href: string; extra?: { label: string; href: string } }[] = [
+const experiences: { company: string; role: string; year: string; description: string; href: string; extras?: { label: string; href: string }[] }[] = [
   {
     company: "Boardy",
     role: "software engineer",
     year: "2026",
-    description: "agentic calendar integration + autonomous scheduling across 2,000+ calendars",
+    description: "agentic calendar integration + autonomous scheduling across 10,000+ calendars",
     href: "https://boardy.ai/",
   },
   {
@@ -12,13 +12,17 @@ const experiences: { company: string; role: string; year: string; description: s
     year: "2025",
     description: "ai-powered prescription delivery for pharmacies across Canada. helped launch the Uber Direct partnership",
     href: "https://scriptrunner.ai/",
-    extra: { label: "yahoo finance", href: "https://ca.finance.yahoo.com/news/script-runner-uber-direct-partner-140000175.html" },
+    extras: [
+      { label: "yahoo finance", href: "https://ca.finance.yahoo.com/news/script-runner-uber-direct-partner-140000175.html" },
+      { label: "the logic", href: "https://thelogic.co/briefing/prescription-delivery-platform-script-runner-inks-deal-to-use-ubers-route-planning-tech/" },
+      { label: "retail insider", href: "https://retail-insider.com/retail-insider/2025/10/script-runner-uber-direct-partner-on-rx-delivery/" },
+    ],
   },
   {
     company: "SoftSages Technology",
     role: "software engineer",
     year: "2022",
-    description: "ML regression projects + NLP-based email spam classifier",
+    description: "ml regression for clients + nlp email spam classifier with tf-idf n-grams and logistic regression",
     href: "https://www.softsages.com/",
   },
 ];
@@ -43,12 +47,15 @@ export function WorkSection() {
               <p className="mt-0.5 text-[14px] text-white/40">
                 {exp.description}
               </p>
-              {exp.extra && (
-                <p className="mt-1 text-[13px]">
-                  <a href={exp.extra.href} target="_blank" rel="noopener noreferrer"
-                     className="text-white/30 underline decoration-white/15 underline-offset-[3px] transition-colors hover:text-[hsl(33,94%,61%)] hover:decoration-[hsl(33,94%,61%)]/40">
-                    {exp.extra.label}
-                  </a>
+              {exp.extras && exp.extras.length > 0 && (
+                <p className="mt-1 flex flex-wrap items-baseline gap-x-3 gap-y-1 text-[13px]">
+                  <span className="text-white/30">press:</span>
+                  {exp.extras.map((link) => (
+                    <a key={link.href} href={link.href} target="_blank" rel="noopener noreferrer"
+                       className="text-white/30 underline decoration-white/15 underline-offset-[3px] transition-colors hover:text-[hsl(33,94%,61%)] hover:decoration-[hsl(33,94%,61%)]/40">
+                      {link.label}
+                    </a>
+                  ))}
                 </p>
               )}
             </div>

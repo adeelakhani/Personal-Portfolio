@@ -9,7 +9,7 @@ const experiences = [
     logo: "/boardy.png",
     position: "AI Engineer",
     period: "January 2026 – April 2026",
-    description: "Built Boardy AI’s calendar integration and autonomous scheduling systems from 0 → 1, enabling users to coordinate meetings, follow-ups, and networking workflows across 2,000+ connected calendars.",
+    description: "Built Boardy AI’s calendar integration and autonomous scheduling systems from 0 → 1, enabling users to coordinate meetings, follow-ups, and networking workflows across 10,000+ connected calendars.",
   },
   {
     company: "Script Runner",
@@ -27,7 +27,7 @@ const experiences = [
     logo: "/softsages.png",
     position: "Software Engineering Intern",
     period: "July 2022 - August 2022",
-    description: "Worked on various AI/ML regression projects using Pandas, NumPy, Matplotlib, and Scikit-learn, including an email spam classifier that utilized NLP-based preprocessing (TF-IDF) for a web app.",
+    description: "Worked on various AI/ML regression projects using Pandas, NumPy, Matplotlib, and Scikit-learn, including an spam classifier that utilized NLP-based preprocessing (TF-IDF) for a web app.",
   },
   {
     company: "Pine Ridge Secondary School",

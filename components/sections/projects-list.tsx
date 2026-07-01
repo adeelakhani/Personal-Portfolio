@@ -1,16 +1,54 @@
 "use client";
 
 import { useState } from "react";
+import { ArrowDown, Users } from "lucide-react";
 
-const projects = [
+type ProjectStat = {
+  value: number;
+  kind: "downloads" | "installs" | "users";
+  variant?: "peak" | "total";
+};
+
+type Project = {
+  title: string;
+  description: string;
+  links: { label: string; href: string }[];
+  stat?: ProjectStat;
+};
+
+function formatCount(value: number) {
+  if (value >= 1000) {
+    const rounded = value / 1000;
+    return `${rounded % 1 === 0 ? rounded.toFixed(0) : rounded.toFixed(1).replace(/\.0$/, "")}k`;
+  }
+  return value.toLocaleString();
+}
+
+function ProjectStatBadge({ stat }: { stat: ProjectStat }) {
+  const Icon = stat.kind === "installs" || stat.kind === "users" ? Users : ArrowDown;
+  const unit = stat.variant === "peak" ? "peak" : stat.kind;
+
+  return (
+    <span className="inline-flex items-center gap-1 rounded-full border border-white/10 bg-white/[0.03] px-2 py-0.5 text-[11px] leading-none text-white/35">
+      <Icon className="h-3 w-3 shrink-0 opacity-60" strokeWidth={1.75} />
+      <span className="tabular-nums font-medium text-white">
+        {formatCount(stat.value)}
+      </span>
+      <span>{unit}</span>
+    </span>
+  );
+}
+
+const projects: Project[] = [
   {
     title: "localdocs",
-    description: "fully local RAG documentation search,runs entirely on-device via Ollama",
+    description: "fully local RAG documentation search, runs entirely on-device via Ollama",
     links: [
       { label: "github", href: "https://github.com/adeelakhani/localDocs" },
       { label: "npm", href: "https://www.npmjs.com/package/@adeel712/localdocs" },
       { label: "post", href: "https://x.com/adeel_712/status/2050517228030701938" },
     ],
+    stat: { value: 1607, kind: "downloads", variant: "total" },
   },
   {
     title: "Scope AI",
@@ -20,6 +58,7 @@ const projects = [
       { label: "marketplace", href: "https://marketplace.visualstudio.com/items?itemName=Scope.scope" },
       { label: "demo", href: "https://www.loom.com/share/a6096a5c0ac14224a3782d738bbf6e2c" },
     ],
+    stat: { value: 104, kind: "installs", variant: "total" },
   },
   {
     title: "Around Me",
@@ -37,6 +76,7 @@ const projects = [
       { label: "github", href: "https://github.com/adeelakhani/LoopyAI" },
       { label: "npm", href: "https://www.npmjs.com/package/swing-sdk" },
     ],
+    stat: { value: 2802, kind: "downloads", variant: "total" },
   },
   {
     title: "LooLines",
@@ -48,7 +88,7 @@ const projects = [
   },
   {
     title: "LetsCook",
-    description: "cooking turned into a game,post and try community challenges",
+    description: "cooking turned into a game, post and try community challenges",
     links: [
       { label: "github", href: "https://github.com/adeelakhani/LetsCook" },
       { label: "live", href: "https://letscook-silk.vercel.app/" },
@@ -99,9 +139,12 @@ export function ProjectsListSection() {
         <div className="space-y-5">
           {visible.map((project) => (
             <div key={project.title}>
-              <p className="text-[15px] font-medium text-white">
-                {project.title}
-              </p>
+              <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
+                <p className="text-[15px] font-medium text-white">
+                  {project.title}
+                </p>
+                {project.stat && <ProjectStatBadge stat={project.stat} />}
+              </div>
               <p className="mt-0.5 text-[14px] text-white/40">
                 {project.description}
               </p>
