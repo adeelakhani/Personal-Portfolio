@@ -1,17 +1,27 @@
-const experiences: { company: string; role: string; year: string; description: string; href: string; extras?: { label: string; href: string }[] }[] = [
+const experiences: { company: string; role: string; year: string; description: string; href: string; logo: string; logoBg?: boolean; extras?: { label: string; href: string }[] }[] = [
+  {
+    company: "Lindy",
+    role: "software engineer",
+    year: "sep 2026 —",
+    description: "building agent infra and keeping things reliable",
+    href: "https://www.lindy.ai/",
+    logo: "/lindy.png",
+  },
   {
     company: "Boardy",
     role: "software engineer",
-    year: "2026",
+    year: "jan — apr 2026",
     description: "agentic calendar integration + autonomous scheduling across 10,000+ calendars",
     href: "https://boardy.ai/",
+    logo: "/boardy.png",
   },
   {
     company: "Script Runner",
     role: "software engineer",
-    year: "2025",
+    year: "may — aug 2025",
     description: "ai-powered prescription delivery for pharmacies across Canada. helped launch the Uber Direct partnership",
     href: "https://scriptrunner.ai/",
+    logo: "/script-runner.jpeg",
     extras: [
       { label: "yahoo finance", href: "https://ca.finance.yahoo.com/news/script-runner-uber-direct-partner-140000175.html" },
       { label: "the logic", href: "https://thelogic.co/briefing/prescription-delivery-platform-script-runner-inks-deal-to-use-ubers-route-planning-tech/" },
@@ -21,9 +31,11 @@ const experiences: { company: string; role: string; year: string; description: s
   {
     company: "SoftSages Technology",
     role: "software engineer",
-    year: "2022",
+    year: "may — aug 2022",
     description: "ml regression for clients + nlp email spam classifier with tf-idf n-grams and logistic regression",
     href: "https://www.softsages.com/",
+    logo: "/softsages.png",
+    logoBg: true,
   },
 ];
 
@@ -40,8 +52,9 @@ export function WorkSection() {
                 <span className="text-white/30 text-[13px] mr-2">{exp.year}</span>
                 {exp.role},{" "}
                 <a href={exp.href} target="_blank" rel="noopener noreferrer"
-                   className="font-medium text-white underline decoration-white/25 underline-offset-[3px] transition-colors hover:text-[hsl(33,94%,61%)] hover:decoration-[hsl(33,94%,61%)]/50">
-                  {exp.company}
+                   className="group inline-flex items-center gap-1 font-medium text-white underline decoration-white/25 underline-offset-[3px] transition-colors hover:text-[hsl(33,94%,61%)] hover:decoration-[hsl(33,94%,61%)]/50">
+                  <span>{exp.company}</span>
+                  <img src={exp.logo} alt="" className={`h-3.5 w-3.5 rounded-[3px] object-cover opacity-70 transition-opacity group-hover:opacity-100${exp.logoBg ? " bg-white p-[1px]" : ""}`} />
                 </a>
               </p>
               <p className="mt-0.5 text-[14px] text-white/40">
