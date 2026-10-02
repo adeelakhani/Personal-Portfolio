@@ -54,7 +54,7 @@ export function WorkSection() {
                 <a href={exp.href} target="_blank" rel="noopener noreferrer"
                    className="group inline-flex items-center gap-1 font-medium text-white underline decoration-white/25 underline-offset-[3px] transition-colors hover:text-[hsl(33,94%,61%)] hover:decoration-[hsl(33,94%,61%)]/50">
                   <span>{exp.company}</span>
-                  <img src={exp.logo} alt="" className={`h-3.5 w-3.5 rounded-[3px] object-cover opacity-70 transition-opacity group-hover:opacity-100${exp.logoBg ? " bg-white p-[1px]" : ""}`} />
+                  <img src={exp.logo} alt="" className={`h-3.5 w-3.5 rounded-[3px] object-cover transition-all group-hover:brightness-110 group-hover:drop-shadow-[0_0_3px_hsl(33,94%,61%)]${exp.logoBg ? " bg-white p-[1px]" : ""}`} />
                 </a>
               </p>
               <p className="mt-0.5 text-[14px] text-white/40">
