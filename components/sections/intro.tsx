@@ -74,16 +74,16 @@ export function IntroSection() {
              className="group inline-flex items-center gap-[3px] text-white/90 underline decoration-white/25 underline-offset-[3px] transition-colors hover:text-[hsl(33,94%,61%)] hover:decoration-[hsl(33,94%,61%)]/50"><span>university of waterloo</span><img src="/waterloo.png" alt="" className="h-3.5 w-3.5 rounded-[3px] object-cover transition-all group-hover:brightness-110 group-hover:drop-shadow-[0_0_3px_hsl(33,94%,61%)]" /></a>. currently in san francisco.
           swe @{" "}
           <a href="https://www.lindy.ai/" target="_blank" rel="noopener noreferrer"
-             className="group inline-flex items-center gap-[3px] text-white/90 underline decoration-white/25 underline-offset-[3px] transition-colors hover:text-[hsl(33,94%,61%)] hover:decoration-[hsl(33,94%,61%)]/50"><span>Lindy</span><img src="/lindy.png" alt="" className="h-3.5 w-3.5 rounded-[3px] object-cover transition-all group-hover:brightness-110 group-hover:drop-shadow-[0_0_3px_hsl(33,94%,61%)]" /></a>
+             className="text-white/90 underline decoration-white/25 underline-offset-[3px] transition-colors hover:text-[hsl(33,94%,61%)] hover:decoration-[hsl(33,94%,61%)]/50">Lindy</a>
           . prev @{" "}
           <a href="https://boardy.ai/" target="_blank" rel="noopener noreferrer"
-             className="group inline-flex items-center gap-[3px] text-white/90 underline decoration-white/25 underline-offset-[3px] transition-colors hover:text-[hsl(33,94%,61%)] hover:decoration-[hsl(33,94%,61%)]/50"><span>Boardy</span><img src="/boardy.png" alt="" className="h-3.5 w-3.5 rounded-[3px] object-cover transition-all group-hover:brightness-110 group-hover:drop-shadow-[0_0_3px_hsl(33,94%,61%)]" /></a>
+             className="text-white/90 underline decoration-white/25 underline-offset-[3px] transition-colors hover:text-[hsl(33,94%,61%)] hover:decoration-[hsl(33,94%,61%)]/50">Boardy</a>
           ,{" "}
           <a href="https://scriptrunner.ai/" target="_blank" rel="noopener noreferrer"
-             className="group inline-flex items-center gap-[3px] text-white/90 underline decoration-white/25 underline-offset-[3px] transition-colors hover:text-[hsl(33,94%,61%)] hover:decoration-[hsl(33,94%,61%)]/50"><span>Script Runner</span><img src="/script-runner.jpeg" alt="" className="h-3.5 w-3.5 rounded-[3px] object-cover transition-all group-hover:brightness-110 group-hover:drop-shadow-[0_0_3px_hsl(33,94%,61%)]" /></a>
+             className="text-white/90 underline decoration-white/25 underline-offset-[3px] transition-colors hover:text-[hsl(33,94%,61%)] hover:decoration-[hsl(33,94%,61%)]/50">Script Runner</a>
           ,{" "}
           <a href="https://www.softsages.com/" target="_blank" rel="noopener noreferrer"
-             className="group inline-flex items-center gap-[3px] text-white/90 underline decoration-white/25 underline-offset-[3px] transition-colors hover:text-[hsl(33,94%,61%)] hover:decoration-[hsl(33,94%,61%)]/50"><span>SoftSages</span><img src="/softsages.png" alt="" className="h-3.5 w-3.5 rounded-[3px] bg-white p-[1px] object-cover transition-all group-hover:brightness-110 group-hover:drop-shadow-[0_0_3px_hsl(33,94%,61%)]" /></a>
+             className="text-white/90 underline decoration-white/25 underline-offset-[3px] transition-colors hover:text-[hsl(33,94%,61%)] hover:decoration-[hsl(33,94%,61%)]/50">SoftSages</a>
         </p>
 
         <div className="mt-4 flex flex-wrap gap-x-5 text-[14px] text-white/40">
