@@ -80,6 +80,21 @@
   }
 }
 
+/* ambient ascii-planet backdrop: sits well under the content */
+.bg-planets {
+  opacity: 0.78;
+  animation: bg-planets-in 2s ease-out both;
+}
+
+@keyframes bg-planets-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.78;
+  }
+}
+
 @keyframes sparkle {
   0%,
   100% {
